@@ -1,0 +1,242 @@
+  [1m[36m (9.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (6.8ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateUsers (20150803190211)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150803190211"]]
+  [1m[35m (7.2ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/" for 46.246.117.13 at 2015-08-03 20:08:55 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ApplicationController#hello as HTML
+  Rendered text template (0.0ms)
+Completed 200 OK in 17ms (Views: 7.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 46.246.117.13 at 2015-08-03 20:09:45 +0000
+Processing by ApplicationController#hello as HTML
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 46.246.117.13 at 2015-08-03 20:26:37 +0000
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 847ms (Views: 843.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/scaffolds.self-0a5628e2ef5ce7093c835a528e603f34a02892a932bf00db342512d7ce2b3b34.css?body=1" for 46.246.117.13 at 2015-08-03 20:26:39 +0000
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 46.246.117.13 at 2015-08-03 20:26:39 +0000
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 46.246.117.13 at 2015-08-03 20:26:39 +0000
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 46.246.117.13 at 2015-08-03 20:26:39 +0000
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for 46.246.117.13 at 2015-08-03 20:26:39 +0000
+
+
+Started GET "/assets/turbolinks.self-680e388bf7f759d85e2dbe0044d33f55e12b26da721317111c01ec92e53df55e.js?body=1" for 46.246.117.13 at 2015-08-03 20:26:39 +0000
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 46.246.117.13 at 2015-08-03 20:26:39 +0000
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 46.246.117.13 at 2015-08-03 20:26:39 +0000
+
+
+Started GET "/users/new" for 46.246.117.13 at 2015-08-03 20:27:04 +0000
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (34.8ms)
+  Rendered users/new.html.erb within layouts/application (45.1ms)
+Completed 200 OK in 118ms (Views: 110.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users" for 46.246.117.13 at 2015-08-03 20:27:27 +0000
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Fn6qpKKBsgbRmlwVcRI7EeA2c3ewjn1DKvg9Ys0KEm71Ps9VA59fce5LfgDdeilIqFDTLD747OMNgAQqvrp7ng==", "user"=>{"name"=>"Johan", "email"=>"Johan@verbose.com"}, "commit"=>"Create User"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Johan"], ["email", "Johan@verbose.com"], ["created_at", "2015-08-03 20:27:27.128275"], ["updated_at", "2015-08-03 20:27:27.128275"]]
+  [1m[36m (9.7ms)[0m  [1mcommit transaction[0m
+Redirected to https://rails-tutorial-springboy82.c9.io/users/1
+Completed 302 Found in 19ms (ActiveRecord: 10.1ms)
+
+
+Started GET "/users/1" for 46.246.117.13 at 2015-08-03 20:27:27 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 73ms (Views: 59.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users" for 46.246.117.13 at 2015-08-03 20:27:31 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 74ms (Views: 72.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 46.246.117.13 at 2015-08-03 21:41:51 +0000
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 67ms (Views: 62.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/1" for 46.246.117.13 at 2015-08-03 21:41:57 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 43ms (Views: 40.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users" for 46.246.117.13 at 2015-08-03 21:42:00 +0000
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 43ms (Views: 41.8ms | ActiveRecord: 0.2ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateMicroposts (20150803221727)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "microposts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" text, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150803221727"]]
+  [1m[36m (12.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/microposts" for 46.246.117.13 at 2015-08-03 22:51:23 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MicropostsController#index as HTML
+  [1m[35mMicropost Load (0.1ms)[0m  SELECT "microposts".* FROM "microposts"
+  Rendered microposts/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 138ms (Views: 124.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/microposts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 46.246.117.13 at 2015-08-03 22:51:24 +0000
+
+
+Started GET "/assets/microposts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 46.246.117.13 at 2015-08-03 22:51:24 +0000
+
+
+Started GET "/microposts/new" for 46.246.117.13 at 2015-08-03 22:51:26 +0000
+Processing by MicropostsController#new as HTML
+  Rendered microposts/_form.html.erb (7.8ms)
+  Rendered microposts/new.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 58ms (Views: 54.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/microposts" for 46.246.117.13 at 2015-08-03 22:51:35 +0000
+Processing by MicropostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OaTzFQYtWC/zoRkjK1ldc+Pn2czeLgI/hwq2SvrWFana5JbkpzO1WMxwOzaHMU8qq4F5l1BYk5+gco8CiWZ8WQ==", "micropost"=>{"content"=>"vdsffgsdfasdfasdfasd", "user_id"=>"1"}, "commit"=>"Create Micropost"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "microposts" ("content", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["content", "vdsffgsdfasdfasdfasd"], ["user_id", 1], ["created_at", "2015-08-03 22:51:35.685811"], ["updated_at", "2015-08-03 22:51:35.685811"]]
+  [1m[36m (9.6ms)[0m  [1mcommit transaction[0m
+Redirected to https://rails-tutorial-springboy82.c9.io/microposts/1
+Completed 302 Found in 14ms (ActiveRecord: 9.9ms)
+
+
+Started GET "/microposts/1" for 46.246.117.13 at 2015-08-03 22:51:36 +0000
+Processing by MicropostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMicropost Load (0.2ms)[0m  SELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered microposts/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 47ms (Views: 44.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/microposts/1/edit" for 46.246.117.13 at 2015-08-03 22:51:39 +0000
+Processing by MicropostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMicropost Load (0.1ms)[0m  [1mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered microposts/_form.html.erb (1.6ms)
+  Rendered microposts/edit.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 42ms (Views: 40.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/microposts" for 46.246.117.13 at 2015-08-03 22:51:43 +0000
+Processing by MicropostsController#index as HTML
+  [1m[35mMicropost Load (0.2ms)[0m  SELECT "microposts".* FROM "microposts"
+  Rendered microposts/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 47ms (Views: 45.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/microposts/new" for 46.246.117.13 at 2015-08-03 22:51:47 +0000
+Processing by MicropostsController#new as HTML
+  Rendered microposts/_form.html.erb (1.9ms)
+  Rendered microposts/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 49ms (Views: 48.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/microposts" for 46.246.117.13 at 2015-08-03 22:52:00 +0000
+Processing by MicropostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wViWZGDh2zKhKsusXvpr59lgMmIum8SMYqAgDl4IOsoiGPOVwf82RZ776bnyknm+kQaSOaDtVSxF2BlGLbhTOg==", "micropost"=>{"content"=>"Firefox!", "user_id"=>"1"}, "commit"=>"Create Micropost"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "microposts" ("content", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["content", "Firefox!"], ["user_id", 1], ["created_at", "2015-08-03 22:52:00.139986"], ["updated_at", "2015-08-03 22:52:00.139986"]]
+  [1m[36m (10.3ms)[0m  [1mcommit transaction[0m
+Redirected to https://rails-tutorial-springboy82.c9.io/microposts/2
+Completed 302 Found in 15ms (ActiveRecord: 10.7ms)
+
+
+Started GET "/microposts/2" for 46.246.117.13 at 2015-08-03 22:52:01 +0000
+Processing by MicropostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mMicropost Load (0.1ms)[0m  SELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered microposts/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 46ms (Views: 44.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/microposts" for 46.246.117.13 at 2015-08-03 22:52:04 +0000
+Processing by MicropostsController#index as HTML
+  [1m[36mMicropost Load (0.2ms)[0m  [1mSELECT "microposts".* FROM "microposts"[0m
+  Rendered microposts/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 51ms (Views: 49.4ms | ActiveRecord: 0.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mMicropost Load (0.2ms)[0m  SELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ?  [["user_id", 1]]
+
+
+Started GET "/microposts/2" for 46.246.117.13 at 2015-08-04 03:10:38 +0000
+Processing by MicropostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mMicropost Load (0.1ms)[0m  SELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered microposts/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 56ms (Views: 54.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/microposts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 46.246.117.13 at 2015-08-04 03:10:39 +0000
+
+
+Started GET "/assets/scaffolds.self-0a5628e2ef5ce7093c835a528e603f34a02892a932bf00db342512d7ce2b3b34.css?body=1" for 46.246.117.13 at 2015-08-04 03:10:39 +0000
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 46.246.117.13 at 2015-08-04 03:10:40 +0000
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 46.246.117.13 at 2015-08-04 03:10:40 +0000
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 46.246.117.13 at 2015-08-04 03:10:40 +0000
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for 46.246.117.13 at 2015-08-04 03:10:40 +0000
+
+
+Started GET "/assets/turbolinks.self-680e388bf7f759d85e2dbe0044d33f55e12b26da721317111c01ec92e53df55e.js?body=1" for 46.246.117.13 at 2015-08-04 03:10:40 +0000
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 46.246.117.13 at 2015-08-04 03:10:40 +0000
+
+
+Started GET "/assets/microposts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 46.246.117.13 at 2015-08-04 03:10:40 +0000
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 46.246.117.13 at 2015-08-04 03:10:42 +0000
